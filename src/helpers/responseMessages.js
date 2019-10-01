@@ -1,0 +1,18 @@
+export default {
+  serverError: 'Oops something bad happened',
+  badRequest: 'Bad request',
+  unauthorized: 'Not authorized',
+  forbidden: 'Forbidden Action',
+  signinError: 'Email or password incorrect',
+  notAUser: 'User not found',
+  userExists: 'User already registered',
+  emptyPassword: 'password is not allowed to be empty',
+  emptyName: 'name is not allowed to be empty',
+  emptyEmail: 'email is not allowed to be empty',
+  invalidEmail: 'email must be a valid email',
+  expiredSession: 'Session has expired. Signin to continue',
+  invalidSession: 'Session is invalid. Signin to continue',
+  noToken: 'jwt must be provided',
+  requestSuccess: 'Request successful',
+  resourceCreated: 'Resource successfully created',
+};
