@@ -6,7 +6,6 @@ const { User } = Model;
 
 /**
  * @param {Object} data
- * @param {Object} res
  * @returns {Function} responseHandler
  */
 export const createUser = async (data = {}) => {
