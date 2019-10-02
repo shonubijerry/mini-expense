@@ -8,12 +8,12 @@ import {
   SigninReq, SigninRes, SignupReq
 } from './definitions/auth';
 import {
-  CreateExpenseReq, CreateExpenseRes
+  CreateExpenseReq, CreateExpenseRes, getAllExpensesRes, getOneExpenseReq
 } from './definitions/expense';
 
 
 import { signInPath, signUpPath } from './paths/auth';
-import { createExpensePath } from './paths/expense';
+import { createExpensePath, getOneExpensePath } from './paths/expense';
 
 const swaggerDocument = {
   swagger: '2.0',
@@ -52,6 +52,7 @@ const swaggerDocument = {
     '/auth/signup': signUpPath,
     '/auth/signin': signInPath,
     '/expenses': createExpensePath,
+    '/expenses/:expenseId': getOneExpensePath,
   },
   definitions: {
     SignupReq, // signup request
@@ -59,6 +60,8 @@ const swaggerDocument = {
     SigninRes, // signin response
     CreateExpenseReq,
     CreateExpenseRes,
+    getAllExpensesRes,
+    getOneExpenseReq,
     badRequest, // 400
     notAuthorized, // 401
     accessForbidden, // 403
