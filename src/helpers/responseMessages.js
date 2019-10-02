@@ -12,7 +12,11 @@ export default {
   invalidEmail: 'email must be a valid email',
   expiredSession: 'Session has expired. Signin to continue',
   invalidSession: 'Session is invalid. Signin to continue',
-  noToken: 'jwt must be provided',
+  noToken: 'Authorization token must be provided',
   requestSuccess: 'Request successful',
   resourceCreated: 'Resource successfully created',
+  notFound: 'Resource not found',
+  invalidId: 'Invalid resource id',
+  invalidAmount: 'Invalid amount',
+  invalidDate: 'Invalid date',
 };

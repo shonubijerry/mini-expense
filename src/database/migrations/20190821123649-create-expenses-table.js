@@ -14,6 +14,10 @@ export default {
       type: Sequelize.FLOAT,
       allowNull: false,
     },
+    vat: {
+      type: Sequelize.FLOAT,
+      allowNull: false,
+    },
     date: {
       type: Sequelize.DATE,
       allowNull: false,

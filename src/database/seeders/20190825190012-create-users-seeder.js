@@ -6,13 +6,13 @@ export default {
     {
       id: '841a11f5-2756-47a2-84d6-ec9feac384e2',
       name: 'Lionel Messi',
-      email: 'lionelmessi@mail.com',
+      email: 'messi@mail.com',
       password: await passwordHash('123456'),
     },
     {
       id: '401bd933-3838-4104-b5cd-6374819ee961',
       name: 'Alex Iwobi',
-      email: 'alexiwobi@mail.com',
+      email: 'iwobi@mail.com',
       password: await passwordHash('123456'),
     },
   ], {}),

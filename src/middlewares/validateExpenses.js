@@ -6,20 +6,39 @@ import statusCode from '../helpers/statusCode';
 import resMessage from '../helpers/responseMessages';
 
 /**
- * validate email and password
+ * validate create expense
  * @param {Object} req
  * @param {Object} res
  * @param {Function} next
  * @returns {Object} error
  */
 export const postExpenseFormData = (req, res, next) => {
-  const createSignInSchema = Joi.object().keys({
+  const schema = Joi.object().keys({
     amount: validator.amount,
     date: validator.date,
     reason: validator.reason
   });
 
-  const errors = joiValidator(req.body, createSignInSchema);
+  const errors = joiValidator(req.body, schema);
+  if (!errors) {
+    return next();
+  }
+  return respondWithWarning(res, statusCode.badRequest, resMessage.badRequest, errors);
+};
+
+/**
+ * validate get expense
+ * @param {Object} req
+ * @param {Object} res
+ * @param {Function} next
+ * @returns {Object} error
+ */
+export const getExpenseFormData = (req, res, next) => {
+  const schema = Joi.object().keys({
+    expenseId: validator.id
+  });
+
+  const errors = joiValidator(req.params, schema);
   if (!errors) {
     return next();
   }

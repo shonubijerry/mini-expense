@@ -19,7 +19,7 @@ export const generateToken = async (data, options = { expiresIn: EXPIRATION_DURA
  * @returns {Object} decoded data
  */
 
-export const verifyToken = (token) => jwt.verify(token, SECRET_KEY);
+export const verifyToken = async (token) => jwt.verify(token, SECRET_KEY);
 
 /**
    * Verify a token

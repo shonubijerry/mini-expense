@@ -1,4 +1,3 @@
-import debug from 'debug';
 import Model from '../models';
 import DbServices from './dbServices';
 
@@ -9,12 +8,8 @@ const { User } = Model;
  * @returns {Function} responseHandler
  */
 export const createUser = async (data = {}) => {
-  try {
-    const user = await DbServices.create(User, data);
-    return user;
-  } catch (error) {
-    debug('app')(error);
-  }
+  const user = await DbServices.create(User, data);
+  return user;
 };
 
 /**
@@ -22,10 +17,6 @@ export const createUser = async (data = {}) => {
  * @returns {object} an object containing the information of the user or null
  */
 export const findSingleUser = async (queryOption) => {
-  try {
-    const user = await DbServices.getByOptions(User, { where: queryOption });
-    return user;
-  } catch (error) {
-    debug('app')(error.message);
-  }
+  const user = await DbServices.getByOptions(User, { where: queryOption });
+  return user;
 };

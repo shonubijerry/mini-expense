@@ -21,6 +21,17 @@ describe('DEFAULT TESTS', () => {
         });
     });
 
+    it('it should return root endpoint', (done) => {
+      chai.request(app)
+        .get('/')
+        .end((error, res) => {
+          expect(res).to.have.status(200);
+          expect(res.body.success).to.equal(true);
+          expect(res.body.message).to.equal('Welcome to Mini Expense');
+          done();
+        });
+    });
+
     it('it should not access route if token is not provided', (done) => {
       chai.request(app)
         .post(expensesUrl)

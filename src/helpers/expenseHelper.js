@@ -2,10 +2,13 @@
 /**
  * Check amount
  * @param {string} amount
- * @returns {object} json response
+ * @returns {Object} netAmount and VAT
  */
-export const checkAmount = async (amount) => {
-  const strippedAmount = (amount.endsWith('EUR'))
+export const calculateVAT = async (amount) => {
+  const grossAmount = (amount.endsWith('EUR'))
     ? amount.split(' ')[0] : amount;
-  return strippedAmount;
+
+  const vat = (grossAmount - grossAmount / 1.2).toFixed(2);
+  const netAmount = grossAmount - vat;
+  return { vat, amount: netAmount };
 };
