@@ -2,7 +2,7 @@
 
 client/.DS_Store
 client/node_modules
-client/dist/
+dist
 client/npm-debug.log*
 client/yarn-debug.log*
 client/yarn-error.log*

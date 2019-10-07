@@ -7,11 +7,11 @@
 
 CRUD expense manager
 
-## Hosted on Heroku
-https://mini-exp.herokuapp.com
-
 ## API documentation 
 https://mini-exp.herokuapp.com/api-docs
+
+## App Hosted on Heroku
+https://mini-exp.herokuapp.com
 
 ## Table of Content
  * [Getting Started](#getting-started)

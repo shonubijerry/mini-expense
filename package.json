@@ -10,7 +10,9 @@
         "server:test": "npm run migration:refresh:test && NODE_ENV=test npm run db:seed && NODE_ENV=test nyc --reporter=html --reporter=text mocha --timeout 20000 -r babel-register ./server/src/test/**/*.test.js --exit",
         "test": "npm run server:test",
         "start": "DEBUG=app node dist/server",
-        "build": "rm -rf dist/ && babel ./server/src/ -d dist/server && node ./client/build/build.js",
+        "build": "rm -rf dist/server && babel ./server/src/ -d dist/server && node ./client/build/build.js",
+        "server:build": "rm -rf dist/server && babel ./server/src/ -d dist/server",
+        "client:build": "node ./client/build/build.js",
         "server:dev": "DEBUG=app nodemon --exec babel-node ./server/src/index.js",
         "client:dev": "webpack-dev-server --inline --progress --config ./client/build/webpack.dev.conf.js",
         "migration": "./node_modules/.bin/sequelize db:migrate",
@@ -28,7 +30,8 @@
         "coveralls": "nyc --reporter=lcov --reporter=text-lcov npm test"
     },
     "engines": {
-        "node": "8.16.0"
+        "node": "8.16.0",
+        "npm": "6.4.1"
     },
     "author": "Andela Simulations Programme",
     "license": "MIT",
@@ -136,9 +139,10 @@
         "vue-loader": "^13.3.0",
         "vue-style-loader": "^3.0.1",
         "vue-template-compiler": "^2.5.2",
-        "webpack": "^3.6.0",
-        "webpack-bundle-analyzer": "^2.9.0",
-        "webpack-dev-server": "^2.9.1",
+        "webpack": "^3.12.0",
+        "webpack-bundle-analyzer": "2.9.0",
+        "webpack-cli": "^3.3.9",
+        "webpack-dev-server": "2.9.1",
         "webpack-merge": "^4.1.0"
     },
     "browserslist": [

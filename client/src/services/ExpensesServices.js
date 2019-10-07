@@ -1,7 +1,7 @@
 import axios from 'axios';
 // import { store } from '../store';
 
-const baseURL = 'http://localhost:8300/api/v1';
+const baseURL = '/api/v1';
 
 export default {
   fetchExpenses(token) {
