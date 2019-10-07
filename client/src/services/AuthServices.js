@@ -1,6 +1,15 @@
 import axios from 'axios';
+import dotenv from 'dotenv';
 
-const baseURL = 'http://localhost:8300/api/v1';
+dotenv.config();
+let baseURL;
+
+if (process.env.NODE_ENV === 'production') {
+  baseURL = 'http://localhost:8300/api/v1';
+} else {
+  baseURL = '/api/v1';
+}
+
 
 export default {
   signIn(data) {
