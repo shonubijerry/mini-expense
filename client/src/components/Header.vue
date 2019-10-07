@@ -5,11 +5,11 @@
       Mini-Expense
     </mdb-navbar-brand>
     <mdb-navbar-toggler>
-      <mdb-navbar-nav right id="nav-items" :v-model="user" v-if="user">
+      <mdb-navbar-nav right id="nav-items" :key="auth" :v-bind="auth" :v-model="auth" v-if="auth">
         <li class="nav-item"><a class="nav-link" href="/expenses">Expenses</a></li>
         <li class="nav-item"><a class="nav-link" href="/logout">Logout</a></li>
       </mdb-navbar-nav>
-      <mdb-navbar-nav right id="nav-items" :v-model="user" v-else-if="!user">
+      <mdb-navbar-nav right id="nav-items" :key="auth" :v-bind="auth" :v-model="auth" v-else-if="!auth">
         <li class="nav-item"><a class="nav-link" href="/signup">Register</a></li>
         <li class="nav-item"><a class="nav-link" href="/login">Login</a></li>
       </mdb-navbar-nav>
@@ -40,14 +40,15 @@ export default {
 
   data() {
     return {
-      user: store.state.user,
+      auth: store.state.isAuth,
     };
   },
 
-  created() {
-    EventBus.$on('auth', (auth) => { store.setAuth(auth); });
-    console.log('header', this.user);
-    console.log('state header', store.state.isAuth);
+  mounted() {
+    EventBus.$on('is-auth', () => {
+      store.setAuth(true);
+      this.auth = store.state.isAuth;
+    });
   },
 
 };

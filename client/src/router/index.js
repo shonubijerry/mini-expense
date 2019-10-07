@@ -1,10 +1,10 @@
 import Vue from 'vue';
 import Router from 'vue-router';
-import HelloWorld from '@/components/Home';
 import Expenses from '@/components/Expenses';
 import SignIn from '@/components/SignIn';
 import SignUp from '@/components/SignUp';
 import Logout from '@/components/Logout';
+import Home from '../components/Home';
 
 Vue.use(Router);
 
@@ -14,7 +14,7 @@ export default new Router({
     {
       path: '/',
       name: 'Home',
-      component: HelloWorld,
+      component: Home,
     },
     {
       path: '/signup',

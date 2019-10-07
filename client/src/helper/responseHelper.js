@@ -3,7 +3,7 @@ export const switchResponse = (res) => {
     case 400: {
       let error = '';
       Object.values(res.data.payload).map((item) => {
-        error += `${item}\n`;
+        error += `${item}; `;
         return error;
       });
       return error;

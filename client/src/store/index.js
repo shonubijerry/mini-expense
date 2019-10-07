@@ -20,6 +20,5 @@ export const store = {
 
   setAuth(data) {
     this.state.isAuth = data;
-    console.log('auth', this.state.isAuth);
   },
 };

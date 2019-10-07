@@ -21,14 +21,11 @@ module.exports = {
     ],
     // check if imports actually resolve
     settings: {
-        // 'import/resolver': {
-        //     webpack: {
-        //         config: 'build/webpack.base.conf.js'
-        //     },
-        //     // "import/extensions": [
-        //     //     ".vue"
-        //     // ]
-        // }
+        'import/resolver': {
+            webpack: {
+                config: 'client/build/webpack.base.conf.js'
+            }
+        }
     },
     // add your custom rules here
     rules: {
@@ -93,9 +90,9 @@ module.exports = {
             ]
         }],
         // allow optionalDependencies
-        // 'import/no-extraneous-dependencies': ['error', {
-        //     optionalDependencies: ['test/unit/index.js']
-        // }],
+        'import/no-extraneous-dependencies': ['error', {
+            optionalDependencies: ['client/test/unit/index.js']
+        }],
         // allow debugger during development
         'no-debugger': process.env.NODE_ENV === 'production' ? 'error' : 'off'
     }

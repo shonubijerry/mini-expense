@@ -1,23 +1,14 @@
 import axios from 'axios';
-import dotenv from 'dotenv';
-
-dotenv.config();
-const baseURL = '/api/v1';
-
-// if (process.env.NODE_ENV === 'production') {
-//   baseURL = 'http://localhost:8300/api/v1';
-// } else {
-//   baseURL = '/api/v1';
-// }
-
+import { BASE_URL } from '../../config/constants';
 
 export default {
   signIn(data) {
-    return axios.post(`${baseURL}/auth/signin`, data)
+    return axios.post(`${BASE_URL}/auth/signin`, data)
       .catch(error => error.response);
   },
 
   signUp(data) {
-    return axios.post(`${baseURL}/auth/signup`, data);
+    return axios.post(`${BASE_URL}/auth/signup`, data)
+      .catch(error => error.response);
   },
 };

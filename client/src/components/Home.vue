@@ -6,7 +6,7 @@
       <mdb-container class="free-bird">
         <mdb-row>
           <mdb-col md="10" class="mx-auto white z-depth-1 py-2 px-2">
-            <mdb-card-body>
+            <mdb-card-body class="text-center">
               <h2 class="pb-4"><strong>Mini Expense Manager</strong></h2>
               <mdb-row>
                 <mdb-col md="12">
@@ -29,7 +29,7 @@
 import { mdbContainer, mdbCol, mdbRow, mdbIcon, mdbNavbar, mdbNavItem, mdbNavbarNav, mdbNavbarToggler, mdbBtn, mdbEdgeHeader, mdbCard, mdbCardImage, mdbCardTitle, mdbCardText, mdbCardBody, animateOnScroll } from 'mdbvue';
 
 export default {
-  name: 'HomePage',
+  name: 'Home',
   components: {
     mdbContainer,
     mdbCol,

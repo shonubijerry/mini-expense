@@ -1,14 +1,18 @@
 <template>
 <mdb-container>
   <section class="demo-section">
-    <h4>Sign In</h4>
+    <h4 class="text-center">Sign In</h4>
       <mdb-row>
-        <mdb-col md="6">
+        <mdb-col class="form-container" md="6">
           <!-- Material form login -->
           <div>
             <div class="grey-text">
               <mdb-input label="Your email" icon="envelope" type="email" v-model="email" />
-              <mdb-input label="Your password" icon="lock" type="password" v-model="password"/>
+              <mdb-input label="Your password" icon="lock" type="password" v-model="password" required/>
+            </div>
+            <div id="msg" class="alert alert-danger">
+              {{error}}
+              <a href="#" class="fa-pull-right" @click="closeAlert()" aria-label="close">&times;</a>
             </div>
             <div class="text-center">
               <button class="btn btn-primary" @click="postData">Login</button>
@@ -42,10 +46,13 @@ export default {
     return {
       email: '',
       password: '',
+      error: '',
     };
   },
   mounted() {
     this.checkAuth();
+    // EventBus.$emit('is-auth');
+        // store.setAuth(true);
   },
   methods: {
     checkAuth() {
@@ -59,12 +66,26 @@ export default {
       });
       if (result.status === 200) {
         $cookies.set('user', result.data.payload);
-        EventBus.$emit('auth', true);
+        EventBus.$emit('is-auth', true);
         this.$router.push({ name: 'Expenses' });
       } else {
         const error = switchResponse(result);
+        this.error = error;
+        document.querySelector('#msg').style.display = 'block';
       }
     },
+    closeAlert(alert){
+      document.querySelector('#msg').style.display = 'none';
+    }
   },
 };
 </script>
+
+<style scoped>
+#msg {
+  display: none;
+}
+.form-container {
+  margin: 0 auto;
+}
+</style>
