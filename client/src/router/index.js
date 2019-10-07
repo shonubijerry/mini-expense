@@ -1,6 +1,7 @@
 import Vue from 'vue';
 import Router from 'vue-router';
 import Expenses from '@/components/Expenses';
+import AddExpense from '@/components/AddExpense';
 import SignIn from '@/components/SignIn';
 import SignUp from '@/components/SignUp';
 import Logout from '@/components/Logout';
@@ -35,6 +36,11 @@ export default new Router({
       path: '/expenses',
       name: 'Expenses',
       component: Expenses,
+    },
+    {
+      path: '/expenses/add',
+      name: 'AddExpense',
+      component: AddExpense,
     },
   ],
 });

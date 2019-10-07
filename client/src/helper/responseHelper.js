@@ -11,6 +11,9 @@ export const switchResponse = (res) => {
     case 401: {
       return res.data.message;
     }
+    case 403: {
+      return 'You must login to continue';
+    }
     case 409: {
       return res.data.message;
     }

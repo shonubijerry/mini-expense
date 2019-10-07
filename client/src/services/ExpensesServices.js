@@ -9,4 +9,12 @@ export default {
     };
     return axios.get(`${BASE_URL}/expenses`, { headers });
   },
+
+  postExpense(token, data) {
+    const headers = {
+      Authorization: token,
+    };
+    return axios.post(`${BASE_URL}/expenses`, data, { headers })
+      .catch(error => error.response);
+  },
 };

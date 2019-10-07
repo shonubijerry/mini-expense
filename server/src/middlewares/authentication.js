@@ -14,7 +14,7 @@ import { verifyToken, formatJWTErrorMessage } from '../helpers/jwt';
 export const authenticateUserToken = async (req, res, next) => {
   let token = req.headers.authorization;
   if (!token) {
-    return respondWithWarning(res, statusCode.unauthorized, resMessage.noToken);
+    return respondWithWarning(res, statusCode.forbidden, resMessage.noToken);
   }
   if (token.startsWith('Bearer ')) {
     token = token.slice(7, token.length);
@@ -24,6 +24,6 @@ export const authenticateUserToken = async (req, res, next) => {
     req.auth = key;
     next();
   } catch (error) {
-    return respondWithWarning(res, statusCode.unauthorized, formatJWTErrorMessage(error.message));
+    return respondWithWarning(res, statusCode.forbidden, formatJWTErrorMessage(error.message));
   }
 };

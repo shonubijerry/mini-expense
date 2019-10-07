@@ -32,7 +32,6 @@ import { switchResponse } from '../helper/responseHelper';
 import { EventBus } from '../helper/eventBus';
 
 export default {
-  /* eslint-disable */
   name: 'SignIn',
   components: {
     mdbInput,
@@ -51,13 +50,12 @@ export default {
   },
   mounted() {
     this.checkAuth();
-    // EventBus.$emit('is-auth');
-        // store.setAuth(true);
   },
   methods: {
     checkAuth() {
-      if($cookies.get('user'))
+      if (this.$cookies.get('user')) {
         this.$router.push({ name: 'Expenses' });
+      }
     },
     async postData() {
       const result = await AuthServices.signIn({
@@ -65,7 +63,7 @@ export default {
         password: this.password,
       });
       if (result.status === 200) {
-        $cookies.set('user', result.data.payload);
+        this.$cookies.set('user', result.data.payload);
         EventBus.$emit('is-auth', true);
         this.$router.push({ name: 'Expenses' });
       } else {
@@ -74,7 +72,7 @@ export default {
         document.querySelector('#msg').style.display = 'block';
       }
     },
-    closeAlert(alert){
+    closeAlert() {
       document.querySelector('#msg').style.display = 'none';
     }
   },

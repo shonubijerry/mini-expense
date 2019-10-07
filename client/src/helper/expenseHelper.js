@@ -4,7 +4,7 @@
  * @param {string} amount
  * @returns {Object} netAmount and VAT
  */
-export const calculateVAT = async (amount) => {
+export const calculateVAT = (amount) => {
   const grossAmount = (amount.endsWith('EUR'))
     ? amount.split(' ')[0] : amount;
 

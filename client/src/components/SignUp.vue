@@ -32,7 +32,6 @@ import AuthServices from '../services/AuthServices';
 import { switchResponse } from '../helper/responseHelper';
 
 export default {
-  /* eslint-disable */
   name: 'SignUp',
   components: {
     mdbInput,
@@ -61,14 +60,14 @@ export default {
       if (result.status === 201) {
         this.payload = result.data;
         this.$router.push({ name: 'Expenses' });
-        $cookies.set('user', result.data.payload);
+        this.$cookies.set('user', result.data.payload);
       } else {
         const error = switchResponse(result);
         this.error = error;
         document.querySelector('#msg').style.display = 'block';
       }
     },
-    closeAlert(alert){
+    closeAlert() {
       document.querySelector('#msg').style.display = 'none';
     }
   },

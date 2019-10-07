@@ -17,6 +17,6 @@ export default {
   resourceCreated: 'Resource successfully created',
   notFound: 'Resource not found',
   invalidId: 'Invalid resource id',
-  invalidAmount: 'Invalid amount',
-  invalidDate: 'Invalid date',
+  invalidAmount: 'Enter a valid amount e.g 23 or 23 EUR',
+  invalidDate: 'Provide a future date',
 };
